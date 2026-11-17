@@ -18,20 +18,28 @@
 
 ## Install
 
-Needs DSH with bundle plugin support (0.2+). Put this directory anywhere, then either:
+Requires DeepSeek Harness. Plugins are installed per profile; `web` is used below.
+
+### From npm (recommended)
+
+```powershell
+dsh plugin --profile web add dsh-storage
+```
+
+### From a local directory
 
 ```text
-# from a DSH session (recommended)
+# from a DSH session
 plugin_manager { action: "install_bundle", target: "<absolute path to this directory>" }
 
 # or with the CLI
-dsh plugin --profile <profile> add link:<absolute path to this directory>
+dsh plugin --profile web add link:<absolute path to this directory>
 ```
 
 Refresh the page and open **Settings → Storage**.
 
-Uninstall with `remove_bundle` (or remove the dependency from your profile);
-the recycle bin at `$DSH_HOME/dsh-storage-trash` has to be removed by hand.
+Uninstall with `dsh plugin --profile web remove dsh-storage` (or from the Plugins page).
+The recycle bin at `$DSH_HOME/dsh-storage-trash` has to be removed by hand.
 
 ## Safety
 

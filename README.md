@@ -17,17 +17,27 @@
 
 ## 安装
 
-要求 DSH 支持 bundle 插件（0.2+）。把本目录放到任意位置，然后二选一：
+前置：已安装 DeepSeek Harness；插件以 profile 为单位安装，下面以 `web` 为例。
 
-```text
-# 通过 DSH 会话里的 plugin_manager（推荐）
-plugin_manager { action: "install_bundle", target: "<本目录绝对路径>" }
+### 方式一：从 npm 安装（推荐）
 
-# 或通过 CLI
-dsh plugin --profile <profile> add link:<本目录绝对路径>
+```powershell
+dsh plugin --profile web add dsh-storage
 ```
 
-装完刷新页面：**设置 → 存储**。卸载时用 `remove_bundle`（或从 profile 移除依赖），
+### 方式二：本地目录 / 会话内安装
+
+```text
+# 在 DSH 会话里
+plugin_manager { action: "install_bundle", target: "<本目录绝对路径>" }
+
+# 或走 CLI
+dsh plugin --profile web add link:<本目录绝对路径>
+```
+
+装完刷新页面：**设置 → 存储**。
+
+卸载：`dsh plugin --profile web remove dsh-storage`（或在插件页卸载）。
 回收站目录 `$DSH_HOME/dsh-storage-trash` 需要自己手动删。
 
 ## 安全设计
