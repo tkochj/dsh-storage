@@ -1,0 +1,49 @@
+{
+  "name": "@local/dsh-storage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "description": "Storage: inspect DeepSeek Harness disk usage, manage sessions, and clean cache or attachments with a recycle bin.",
+  "license": "MIT",
+  "author": "chj",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "storage",
+    "cleanup"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkochj/dsh-storage.git"
+  },
+  "homepage": "https://github.com/tkochj/dsh-storage#readme",
+  "bugs": {
+    "url": "https://github.com/tkochj/dsh-storage/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  }
+}

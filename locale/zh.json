@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "存储",
+    "description": "查看 DeepSeek Harness 占用的磁盘空间，管理会话，并在确认后把清理目标移入回收站。"
+  }
+}
