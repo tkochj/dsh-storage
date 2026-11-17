@@ -13,7 +13,7 @@
 - **会话管理**：按标题或工作区搜索；运行中的会话标记「使用中」且不可选；
   删除会把会话（含子会话）移入回收站，附件不跟着删。
 - **清理**：缓存、附件移入回收站；清空回收站是永久删除，必须勾选确认。
-- **纯本地**：零网络请求，只读 `$DSH_HOME`。
+- **纯本地**：零网络请求；统计只读，清理只写入同目录下的 `dsh-storage-trash` 回收站。
 
 ## 安装
 
@@ -48,7 +48,7 @@ dsh plugin --profile web add link:<本目录绝对路径>
 |---|---|
 | 回环限定 | 非 `127.0.0.1/::1` 请求直接 403；`Host` 头也必须是回环名 |
 | 同源校验 | POST 校验 `Origin` 与 `Sec-Fetch-Site`，挡 CSRF |
-| 一次性令牌 | 读接口下发 48 位 `cleanupToken`，写请求必须带上（`timingSafeEqual` 比较） |
+| 进程令牌 | 每个进程生成 48 位 `cleanupToken`（CSRF），读接口下发，写请求必须带上（`timingSafeEqual` 比较） |
 | 只认 POST | 一切修改都是 POST + `Content-Type: application/json`；GET 永远只读 |
 | 两阶段计划 | 先 `plan` 拿到文件清单/体积（120 秒过期），再凭 `planId` 执行 |
 | 路径包含校验 | 执行时逐个文件重算 `relative()`，越出根目录的一律跳过 |

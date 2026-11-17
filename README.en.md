@@ -14,7 +14,7 @@
   deleting moves the session (and its children) to the recycle bin and leaves attachments alone.
 - **Cleanup**: cache and attachments move to the recycle bin; emptying the bin is permanent and
   requires an explicit acknowledgement.
-- **Fully local**: no network requests, reads only `$DSH_HOME`.
+- **Fully local**: no network requests; the scan is read-only and cleanup writes only to the `dsh-storage-trash` recycle bin under the same home.
 
 ## Install
 
@@ -47,7 +47,7 @@ Cleanup is the only write path, so it is gated twice and validated on every file
 
 - loopback-only requests, with a loopback `Host` header;
 - `Origin` / `Sec-Fetch-Site` checks on POST;
-- one-time 48-char `cleanupToken` (compared with `timingSafeEqual`);
+- per-process 48-char CSRF `cleanupToken` (compared with `timingSafeEqual`);
 - POST + `application/json` only — GET is always read-only;
 - two-phase plan → execute, plans expire after 120 s;
 - every path re-checked with `relative()` before it is touched;
