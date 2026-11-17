@@ -3,7 +3,7 @@
 > 给 [DeepSeek Harness](https://github.com/deepseek-ai)（DSH）设置页加一个「存储」面板：
 > 看清 `$DSH_HOME` 到底占了多少空间、都花在哪，并把该清的清进回收站。
 
-![存储面板](docs/screenshot.png)
+![存储面板](https://raw.githubusercontent.com/tkochj/dsh-storage/main/docs/screenshot.png)
 
 ## 功能
 
@@ -54,7 +54,7 @@ dsh plugin --profile <profile> add link:<本目录绝对路径>
 ```yaml
 - insert:
     - id: dsh-storage
-      name: '@local/dsh-storage'
+      name: dsh-storage
       config:
         scanBudgetMs: 8000    # 单次扫描预算，1000–60000
         cacheTtlMs: 60000     # 统计缓存时长，0–600000

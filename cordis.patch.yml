@@ -1,4 +1,4 @@
 - insert:
     - id: dsh-storage
-      name: '@local/dsh-storage'
+      name: dsh-storage
       config: {}

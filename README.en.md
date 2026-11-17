@@ -3,7 +3,7 @@
 > Adds a **Storage** section to DeepSeek Harness (DSH) settings: see how much
 > `$DSH_HOME` takes, where it goes, and move what you no longer need to a recycle bin.
 
-![Storage panel](docs/screenshot.png)
+![Storage panel](https://raw.githubusercontent.com/tkochj/dsh-storage/main/docs/screenshot.png)
 
 ## Features
 
@@ -53,7 +53,7 @@ Cleanup is the only write path, so it is gated twice and validated on every file
 ```yaml
 - insert:
     - id: dsh-storage
-      name: '@local/dsh-storage'
+      name: dsh-storage
       config:
         scanBudgetMs: 8000    # per-scan budget, 1000–60000
         cacheTtlMs: 60000     # stats cache TTL, 0–600000
